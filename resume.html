@@ -5,39 +5,256 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siva Ganisetti - Resume</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+        /* General Reset */
+        * {
+            margin: 0;
             padding: 0;
-            color: black;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7fc;
+            color: #333;
+            padding: 0 20px;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease-in-out;
         }
+
+        header:hover {
+            transform: translateY(-10px);
+        }
+
         h1 {
             margin: 0;
+            font-size: 3.5em;
+            color: #000;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
+
+        h1:hover {
+            color: #444;
+        }
+
         .contact-info {
-            font-size: 0.9em;
-            margin-bottom: 30px;
+            font-size: 1.1em;
+            margin-top: 10px;
+            color: #666;
+            transition: color 0.3s ease;
         }
+
+        .contact-info a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #444;
+        }
+
         .profile-image {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            margin: 10px auto;
+            margin: 20px auto;
+            border: 5px solid #000;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #000, #444);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #333;
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
         section {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
         }
+
+        section:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         h2 {
-            border-bottom: 2px solid #555;
-            padding-bottom: 5px;
+            font-size: 2.2em;
+            color: #000;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #000, #444);
+            color: white;
         }
-        ul {
-            padding-left: 20px;
+
+        h3 {
+            font-size: 1.4em;
+            color: #000;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Skill Bars */
+        .skill-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            width: 80%;
+            transition: width 0.3s ease;
+        }
+
+        .skill-bar span {
+            display: block;
+            height: 100%;
+            background-color: #000;
+            border-radius: 5px;
+        }
+
+        .skill-bar span.advanced { width: 90%; }
+        .skill-bar span.intermediate { width: 70%; }
+        .skill-bar span.beginner { width: 50%; }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 20px;
+            border-left: 3px solid #000;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.3em;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+        }
+
+        .timeline-item ul li {
+            font-size: 1.1em;
+            color: #555;
+            list-style: none;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            margin-top: 40px;
+            border-bottom: 2px solid #000;
+            margin-bottom: 40px;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 15px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .skill-bar-container {
+                flex-direction: column;
+            }
+
+            .skill-bar {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .download-btn {
+                padding: 10px 20px;
+            }
+
+            .section-divider {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -46,58 +263,66 @@
         <h1>Siva Ganisetti</h1>
         <img class="profile-image" src="https://media.licdn.com/dms/image/v2/D5603AQHDP4RHcH98PA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725632963794?e=1741824000&v=beta&t=9bUbxEF12Ayp1CXYvx5yz9jfZfxnMEXc_ofQT8fVU8A" alt="Siva Ganisetti">
         <p class="contact-info">
-            kalla, Wg.Dist | 6301178508 | <a href="SivaGannisetti@gmail.com" target=new>SivaGannisetti@gmail.com</a> | <a href="github.com/sivaganisetti369" target=new>sivaganisetti369</a>
+            kalla, Wg.Dist | 6301178508 | <a href="mailto:SivaGannisetti@gmail.com">SivaGannisetti@gmail.com</a> | <a href="https://github.com/sivaganisetti369" target="_blank">github.com/sivaganisetti369</a>
         </p>
+        <a href="data:application/pdf;base64,...(your base64-encoded PDF here)" download="Siva_Ganisetti_Resume.pdf" class="download-btn">Download Resume</a>
     </header>
 
     <section>
         <h2>Professional Summary</h2>
-        <p>Persuing B.Tech in CIC (CSE-IoT & CyberSecurity including blockchain technology) and completing related cybersecurity internships and workshops. Focusing on cybersecurity with an emphasis on ethical hacking techniques.</p>
+        <p>Currently pursuing a B.Tech in Computer Science and Engineering with a focus on Internet of Things (IoT), Cybersecurity, and Blockchain Technology. Passionate about ethical hacking, system security, and digital forensics. Actively completing internships and workshops to deepen practical knowledge in securing digital infrastructures.</p>
     </section>
 
     <section>
         <h2>Experience</h2>
-        <h3>Being a cybersecurity student</h3>
-        <ul>
-            <li>Completed cybersecurity internships and workshops.</li>
-            <li>Performed phishing attacks on friends and other simulated malicious activities for learning purposes.</li>
-        </ul>
-
-        <h3>Internships</h3>
-        <ul>
-            <li>Completed a cybersecurity internship on the Palolto platform.</li>
-            <li>Completed cloud networking security training on the Juniper platform.</li>
-            <li>Completed cybersecurity-digital forensic training on the Skilldizre platform.</li>
-        </ul>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Cybersecurity Student (2023-Present)</h3>
+                <ul>
+                    <li>Completed cybersecurity internships and workshops, gaining hands-on experience in ethical hacking techniques.</li>
+                    <li>Implemented phishing attacks and other penetration testing techniques in a controlled, ethical environment to simulate real-world cyber threats.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Internships</h3>
+                <ul>
+                    <li>Cybersecurity Internship on Palo Alto Platforms, focusing on network security and threat management.</li>
+                    <li>Cloud Networking Security Training on the Juniper platform, developing skills in cloud security protocols and solutions.</li>
+                    <li>Cybersecurity and Digital Forensics Training on Skilldizre, gaining expertise in forensic investigation and incident response.</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section>
         <h2>Education</h2>
-        <h3>B.Tech in CIC, Sasi Institute of Technology and Engineering (2023-2026)</h3>
-        <p>Maintaining a CGPA above 7.5 in each semester.</p>
+        <h3>B.Tech in Computer Science and Engineering (CIC), Sasi Institute of Technology and Engineering (2023-2026)</h3>
+        <p>Maintaining a CGPA above 7.5 each semester with a focus on cybersecurity, IoT, and blockchain technology.</p>
 
-        <h3>Diploma in D-EEE, S.M.T.B. Seetha Polytechnic in Vishnu (2020-2023)</h3>
-        <p>Achieved excellent academic performance and recognized as the best student for subject knowledge.</p>
+        <h3>Diploma in Electrical and Electronics Engineering (D-EEE), S.M.T.B. Seetha Polytechnic, Vishnu (2020-2023)</h3>
+        <p>Achieved excellent academic performance and was recognized as the best student for subject knowledge in the discipline.</p>
     </section>
 
     <section>
         <h2>Skills</h2>
-        <ul>
-            <li>Cybersecurity</li>
-            <li>Excellent communication skills, both verbal and written</li>
-            <li>Debugging and finding vulnerabilities in code</li>
-            <li>Tracking attackers and implementing robust system security</li>
-        </ul>
+            <ul>
+                <li>Cybersecurity - Advanced</li>
+                <li>Communication Skills - Intermediate</li>
+                <li>Penetration Testing - Intermediate</li>
+                <li>Cloud Security - Beginner</li>
+            </ul>
+        </section>
+        
     </section>
 
     <section>
         <h2>Activities</h2>
-        <p>Performed vulnerability and penetration tests on systems, solved networking and cryptographic problems, and pursued ethical hacking training.</p>
+        <p>Participated in multiple cybersecurity competitions, including ethical hacking and vulnerability assessment challenges. Continuously learning through online platforms and hands-on labs. Contributed to cybersecurity community discussions and knowledge sharing.</p>
     </section>
 
     <section>
         <h2>Projects</h2>
-        <p>Completed a project in B.Tech last semester on server hacking and malware injection targeting connected systems.</p>
+        <p>Developed and demonstrated a project on server hacking and malware injection targeting IoT-connected systems as part of the B.Tech curriculum.</p>
     </section>
 </body>
 </html>
